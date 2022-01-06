@@ -13,6 +13,6 @@
     props: ['error'],
     mounted(){
         console.warn(this.error);
-    }
+    },
   }
 </script>
