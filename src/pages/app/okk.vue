@@ -1,17 +1,30 @@
 <template>
   <div class="container">
-    <p>app  . index vue</p>
-    <count-down-clock></count-down-clock>
+    <p v-bind="{type:msg}">app . index vue</p>
+    <p :type="2">pp . index vue</p>
+    <count-down-clock time="20" v-slot:default="timeObj">
+      <div class="count-down">
+        <div class="icon"></div>
+        {{ timeObj.d }}天{{ timeObj.hh }}小时{{ timeObj.mm }}分钟{{
+          timeObj.ss
+        }}秒
+      </div>
+      <div slot="s1">ssss</div>
+    </count-down-clock>
   </div>
 </template>
 
 <script>
-import countDownClock from '@/components/count-down-clock'
-// import CountDownClock from '../../components/count-down-clock.vue';
+import countDownClock from "@/components/count-down-clock";
 export default {
-  components:{
-    countDownClock
-    // CountDownClock
-  }
+  data() {
+    return {
+      msg:'hhh'
+    };
+  },
+
+  components: {
+    countDownClock,
+  },
 };
 </script>
