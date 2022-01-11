@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <p>_ id.vue</p>
+    <p>_ slug.vue</p>
   </div>
 </template>
 
