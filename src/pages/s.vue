@@ -89,6 +89,15 @@ const ff:Fn2 =function(a,b){
   
 }
 ff('ddd')
+interface LLength {
+  length:number
+}
+
+function fn<T extends LLength>(x:T):void{
+  console.log(x.length);
+  
+}
+fn('ds')
 </script>
 
 <style scoped></style>
