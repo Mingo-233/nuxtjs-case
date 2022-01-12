@@ -93,11 +93,11 @@ interface LLength {
   length:number
 }
 
-function fn<T extends LLength>(x:T):void{
-  console.log(x.length);
+function fn<T extends number |string>(x:T):void{
+  console.log(x);
   
 }
-fn('ds')
+fn(12)
 </script>
 
 <style scoped></style>
