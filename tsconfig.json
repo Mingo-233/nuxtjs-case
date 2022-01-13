@@ -17,19 +17,15 @@
         "baseUrl": ".", // 如果写 src 会出现 @ 无法正常指向
         "jsx": "preserve",
         "paths": {
-            "~/*": [
-                "./src/*"
-            ], // 根据项目实际情况
-            "@/*": [
-                "./src/*"
-            ]
+            "~/*": [ "src/*"], 
+            "@/*": [ "src/*"]
         },
         "types": [
             "@types/node",
             "@nuxt/types",
             // "@nuxtjs/axios"
         ],
-        "skipLibCheck": true
+        // "skipLibCheck": true
     },
     "exclude": [
         "node_modules",

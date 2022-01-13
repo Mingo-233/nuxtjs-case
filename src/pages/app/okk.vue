@@ -15,16 +15,19 @@
 </template>
 
 <script>
-import countDownClock from "@/components/count-down-clock";
+import countDownClock from "@/components/count-down-clock.vue";
+import xx from "@/utils/index"
 export default {
   data() {
     return {
-      msg:'hhh'
+      msg:'hhh',
+      x:xx
     };
   },
 
   components: {
     countDownClock,
+
   },
 };
 </script>
