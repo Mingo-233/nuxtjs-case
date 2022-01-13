@@ -1,15 +1,21 @@
 <template>
   <div>
     <div class="_base-count-down">
-    <div class="content">
-      <slot v-bind="{
-        d: days, h: hours, m: mins, s: seconds,
-        hh: `00${hours}`.slice(-2),
-        mm: `00${mins}`.slice(-2),
-        ss: `00${seconds}`.slice(-2),
-      }"></slot>
-    </div>
-    <slot name="s1"></slot>
+      <el-button @click="handle"> btn </el-button>
+      <div class="content">
+        <slot
+          v-bind="{
+            d: days,
+            h: hours,
+            m: mins,
+            s: seconds,
+            hh: `00${hours}`.slice(-2),
+            mm: `00${mins}`.slice(-2),
+            ss: `00${seconds}`.slice(-2),
+          }"
+        ></slot>
+      </div>
+      <slot name="s1"></slot>
     </div>
   </div>
 </template>
@@ -49,6 +55,10 @@ export default {
     this.countDown();
   },
   methods: {
+    handle() {
+      // console.log(this.$nuxt.$emit);
+      this.$nuxt.$emit("init");
+    },
     countDown() {
       this.curTime = Date.now();
       this.getTime(this.duration);
