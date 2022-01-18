@@ -60,7 +60,7 @@ enum E1 {
   B,
   C
 }
-
+let ppp:E1 = E1.A
 type TE1 = keyof E1;
 /**
 拿到的是错误的类型
