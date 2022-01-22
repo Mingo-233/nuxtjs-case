@@ -1,15 +1,26 @@
 <template>
-  <div class="animation">
-    <div class="box">
-      <!-- <div class="bg1"></div> -->
-      <!-- <div class="bg2"></div>
+  <div>
+    <div class="animation">
+      <div class="box">
+        <!-- <div class="bg1"></div> -->
+        <!-- <div class="bg2"></div>
       <div class="bg3"></div> -->
-      <button @click="handle">点赞</button>
+        <button @click="handle">点赞</button>
+      </div>
+    </div>
+    <div class="animation">
+      <canvas
+        id="thumsCanvas"
+        width="200"
+        height="400"
+        style="width: 100px; height: 200px"
+      ></canvas>
     </div>
   </div>
 </template>
 
 <script>
+import '@/utils/canvas.js'
 export default {
   name: "animation",
   data() {
@@ -21,7 +32,7 @@ export default {
     handle() {
       const num = Math.floor(Math.random() * 5) + 3;
       for (let i = 0; i < num; i++) {
-        this.createPic()
+        this.createPic();
       }
     },
     createPic() {
