@@ -21,7 +21,6 @@
           To get started, remove <code class="bg-gray-100 text-sm p-1 rounded border">components/Tutorial.vue</code> and start coding in <code class="bg-gray-100 text-sm p-1 rounded border">pages/index.vue</code>. Have fun!
         </p>
       </div>
-
     </div>
   </div>
 </template>
@@ -31,7 +30,8 @@ export default {
   name: 'NuxtTutorial',
   data() {
     return {
-      num:0
+      num:0,
+      routerList:[]
     }
   },
   methods: {
