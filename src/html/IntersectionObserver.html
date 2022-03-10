@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .root {
+      height: 400px;
+      width: 400px;
+      border: 1px solid black;
+      overflow-y: scroll;
+    }
+    .root .box {
+      position: relative;
+      width: 400px;
+      height: 900px;
+      border: 1px solid red;
+    }
+    .root .box .targetTop{
+      position: absolute;
+      top: 100px;
+      width: 50px;
+      height: 50px;
+      background-color: red;
+    }
+    
+    .root .box .target{
+      /* opacity: 0; */
+      position: absolute;
+      bottom: 100px;
+      width: 50px;
+      height: 50px;
+      background-color: aqua;
+    }
+    .root .box .target1{
+      /* opacity: 0; */
+      position: absolute;
+      bottom: 100px;
+      left: 100px;
+      width: 50px;
+      height: 50px;
+      background-color: aqua;
+    }
+    .root .box .target2{
+      /* opacity: 0; */
+      position: absolute;
+      bottom: 0;
+      width: 50px;
+      height: 50px;
+      background-color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="root">
+    <div class="box">
+      <div class="targetTop"  id="1"></div>
+
+      <div class="target"  id="1"></div>
+      <div class="target1" id="2"></div>
+      <div class="target2" id="3"></div>
+    </div>
+  </div>
+  <script>
+
+    ((doc) => {
+      let n = 0
+      //获取目标元素
+      const targetTop = doc.querySelector(".targetTop")
+
+      const target = doc.querySelector(".target")
+      const target1 = doc.querySelector(".target1")
+      const target2 = doc.querySelector(".target2")
+      //获取根元素
+      const root = doc.querySelector(".root")
+      //回调函数
+      const callback = (entries, observer) => {
+        n++
+          console.log('callback 执行');
+        // if(entries[0].isIntersecting){
+          // isVisible
+          // isIntersecting
+          console.log(`🐴🐴~ 执行了 ${n} 次callback`);
+        console.log('🐴🐴~ entries:', entries);
+        console.log('🐴🐴~ observer:', observer);
+        // entries.forEach(item => {
+        // console.log(item.target.id);
+      console.log(observer.takeRecords());
+          
+        // });
+        // }
+
+      };
+      //配置对象
+      const options = {
+        root: root,
+        // rootMargin: '0px 0px 0px 0px',
+        rootMargin: '0px 0px 0px 0px',
+        threshold: [1],
+        trackVisibility: true,
+        delay: 100
+      };
+      //创建观察器
+      const myObserver = new IntersectionObserver(callback, options);
+      //开始监听目标元素
+      myObserver.observe(targetTop);
+      myObserver.observe(target);
+      myObserver.observe(target1);
+      myObserver.observe(target2);
+      // console.log('🐴🐴~ myObserver:', myObserver);
+    })(document)
+  </script>
+</body>
+
+</html>
