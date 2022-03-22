@@ -52,21 +52,39 @@
       height: 50px;
       background-color: blue;
     }
+
+    .root .box .move{
+      /* opacity: 0; */
+      position: absolute;
+      top: 100px;
+      right: 100px;
+      width: 50px;
+      height: 50px;
+      background-color: palegoldenrod;
+      transition: right 3s;
+    }
   </style>
 </head>
 
 <body>
   <div class="root">
+    <button onClick="moveto()">handle</button>
     <div class="box">
       <div class="targetTop"  id="1"></div>
 
       <div class="target"  id="1"></div>
       <div class="target1" id="2"></div>
       <div class="target2" id="3"></div>
+
+      <div class="move"0></div>
     </div>
   </div>
   <script>
-
+function moveto(){
+  let el = document.querySelector('.move')
+  el.style.right='320px'
+  console.log('~~');
+}
     ((doc) => {
       let n = 0
       //获取目标元素

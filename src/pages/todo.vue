@@ -28,6 +28,11 @@ export default {
       toggle: "todos/toggle",
     }),
   },
+  mounted(){
+    setInterval(() => {
+      console.log('!!');
+    }, 1000);
+  }
 };
 </script>
 
