@@ -7,7 +7,7 @@
  */
 
 export const intersectionObserverInit = (option: any) => {
-  const observeredTemplateTimeMap = {};
+  const observeredTemplateTimeMap:any  = {};
   const {
     rootEl, // 注意：根元素是当前视口根元素，这个元素的高度一定是小于等于视口高度的
     targetEl,
@@ -28,7 +28,7 @@ export const intersectionObserverInit = (option: any) => {
       if (!elAttribute) return ent.isIntersecting && ent.isVisible;
       const currentElAttribute = ent.target.dataset[elAttribute];
       // 间隔时间是否超过2s
-      const isLongTime = ent.time - (observeredTemplateTimeMap[currentElAttribute] || 0) > 2000;
+      const isLongTime = ent.time - ((observeredTemplateTimeMap[currentElAttribute]) || 0) > 2000;
       return ent.isIntersecting && ent.isVisible && isLongTime;
     });
     visibleEntries.forEach((item: any) => {

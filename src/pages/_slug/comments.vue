@@ -6,8 +6,9 @@
 
 <script>
 export default {
-  async asyncData({ params }) {
-    console.log(params);
+  async asyncData(content) {
+    console.log(content);
+    content.$myInjectedFunction("works in comments asyncData");
   },
   mounted(){
 

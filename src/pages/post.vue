@@ -4,6 +4,7 @@
     this is post vue
 
     <button @click="handle">btn</button>
+    <button @click="handleFunc">hand func</button>
   </div>
 </template>
 <script>
@@ -13,7 +14,7 @@ import to from "await-to-js";
 export default {
   layout: "blog",
   async asyncData({ params, app }) {
-    //   console.log(app);
+      console.log(app);
     app.$myInjectedFunction("works in asyncData");
 
     return {};
@@ -31,6 +32,11 @@ export default {
       console.log("dd");
       let data = await axios.post(`127.0.0.0/ap2/:id`, { id: "22" });
       console.log(data);
+    },
+    handleFunc() {
+      console.log("dd");
+    this.$myInjectedFunction("works in fetch");
+
     },
     async asyncTaskWithCb(cb) {
       let err, user, savedTask, notification;
