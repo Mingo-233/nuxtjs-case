@@ -18,7 +18,8 @@
         "jsx": "preserve",
         "paths": {
             "~/*": [ "src/*"], 
-            "@/*": [ "src/*"]
+            "@/*": [ "src/*"],
+            "*": ["types/*"]
         },
         "types": [
             "@types/node",
