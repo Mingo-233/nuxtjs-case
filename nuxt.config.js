@@ -25,7 +25,9 @@ export default {
   css: [
     'element-ui/lib/theme-chalk/index.css'
   ],
-
+  router: {
+    middleware: 'auth'
+  },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/element-ui',
@@ -43,6 +45,8 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '~/modules/simple',
+    'cookie-universal-nuxt',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

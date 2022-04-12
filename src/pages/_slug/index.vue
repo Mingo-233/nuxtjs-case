@@ -13,13 +13,20 @@ export default {
   //   // return /^\d+$/.test(params.id);
   //   return  params.slug.startsWith('sulg')
   // },
-  async asyncData ({ params }) {
+  async asyncData({ params }) {
     console.log(params);
     // const slug = params.slug; // When calling /abc the slug will be "abc"
     // return { slug };
   },
-  mounted () {
-    console.log('mounted');
+  mounted() {
+    this.$cookies.set("cookie-name", "cookie-value", {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 7,
+    });
+
+console.log(this);
+    // this.$SimpleModule()
+    this.$simple()
   },
 };
 </script>

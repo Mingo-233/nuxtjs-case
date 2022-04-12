@@ -10,8 +10,8 @@
         <span @click="deleteItem(index)">❎</span>
       </div>
       <div>
-        <span >全选</span>
-        <input type="checkbox" v-model="isAllDone" @click="toggleAll"/>
+        <span>全选</span>
+        <input type="checkbox" v-model="isAllDone" @click="toggleAll" />
         <span>{{ hasDone }} / {{ lists.length }}</span>
       </div>
     </div>
@@ -26,9 +26,9 @@ interface listItem {
   done: boolean;
 }
 export default Vue.extend({
-
+  // export default {
+  middleware: "auth",
   data() {
-
     return {
       todoMsg: "",
       lists: [] as listItem[],
@@ -37,8 +37,8 @@ export default Vue.extend({
   },
 
   computed: {
-    hasDone():number {
-      return this.lists.filter(item => item.done).length;
+    hasDone(): number {
+      return this.lists.filter((item) => item.done).length;
     },
   },
 
@@ -53,18 +53,30 @@ export default Vue.extend({
       }
     },
 
-    deleteItem(index:number) {
+    deleteItem(index: number) {
       this.lists.splice(index, 1);
     },
 
     clearHasDone() {
-      this.lists = []
+      this.lists = [];
     },
 
     toggleAll() {
       this.isAllDone = !this.isAllDone;
-      this.lists.forEach(item => (item.done = this.isAllDone));
+      this.lists.forEach((item) => (item.done = this.isAllDone));
     },
+  },
+  mounted() {
+    let a  = Vue.extend({name:'xx'})
+    console.log(a);
+        let b  = Vue.component('xx',{
+            template:'<div>xx</div>'
+        })
+    console.log(b);
+    this.$cookies.set("cookie-name", "cookie-value", {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 7,
+    });
   },
 });
 </script>

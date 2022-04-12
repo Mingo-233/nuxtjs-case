@@ -13,8 +13,9 @@ import to from "await-to-js";
 
 export default {
   layout: "blog",
-  async asyncData({ params, app }) {
-      console.log(app);
+  async asyncData({ params, app,route }) {
+      // console.log(app);
+      console.log(route);
     app.$myInjectedFunction("works in asyncData");
 
     return {};
