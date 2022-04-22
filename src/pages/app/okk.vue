@@ -16,7 +16,7 @@
 
 <script>
 import countDownClock from "@/components/count-down-clock.vue";
-import xx from "@/utils/index";
+import xx from "~/store/index";
 export default {
   data() {
     return {
@@ -26,7 +26,7 @@ export default {
   },
   mounted() {
     this.$nuxt.$on("init", () => {
-      console.log('init');
+      console.log("init");
     });
   },
   components: {

@@ -1,9 +1,10 @@
 <template>
-  <Tutorial/>
+  <Tutorial />
 </template>
 
 <script>
+import js from "~/store/index.js";
 export default {
-  name: 'IndexPage'
-}
+  name: "IndexPage",
+};
 </script>
