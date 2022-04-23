@@ -1,19 +1,41 @@
 <template>
   <div class="css-demo">
-    <div class="banner" :style="{background:`url(//yun.baoxiaohe.com/static/temp_show_img2-1.png?imageView2/0/w/385/h/166/q/90|imageslim)`}">banner</div>
-    <div class="content">
-      aa
-    </div>
+    <!-- <div
+      class="banner"
+      :style="{
+        background: `url(//yun.baoxiaohe.com/static/temp_show_img2-1.png?imageView2/0/w/385/h/166/q/90|imageslim)`,
+      }"
+    >
+      banner
+    </div> -->
+    <div class="content">aa</div>
+    <!-- 点击热区 -->
+    <img
+      src="http://yun.baoxiaohe.com/static/temp_show_img2-1.png"
+      alt=""
+      usemap="#map"
+    />
+    <map name="map">
+      <area
+        shape="rect"
+        coords="0,0,200,166"
+        alt="baidu"
+        href="https://www.baidu.com"
+      />
+      <area
+        shape="rect"
+        coords="200,0,350,166"
+        alt="sougou"
+        href="https://www.sogou.com"
+      />
+    </map>
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'css-demo',
-  methods: {
-
-  },
+  name: "css-demo",
+  methods: {},
 };
 </script>
 

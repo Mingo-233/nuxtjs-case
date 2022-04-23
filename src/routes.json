@@ -1,0 +1,128 @@
+[
+  {
+    "name": "404",
+    "path": "/404",
+    "component": "/Users/mingo/project/nuxtjs-case/src/pages/404.vue",
+    "chunkName": "pages/404",
+    "_name": "_2faf9651"
+  },
+  {
+    "name": "a",
+    "path": "/a",
+    "component": "/Users/mingo/project/nuxtjs-case/src/pages/a.vue",
+    "chunkName": "pages/a",
+    "_name": "_bf8a858c"
+  },
+  {
+    "name": "animation",
+    "path": "/animation",
+    "component": "/Users/mingo/project/nuxtjs-case/src/pages/animation/index.vue",
+    "chunkName": "pages/animation/index",
+    "_name": "_6ce1aac0"
+  },
+  {
+    "name": "css",
+    "path": "/css",
+    "component": "/Users/mingo/project/nuxtjs-case/src/pages/css.vue",
+    "chunkName": "pages/css",
+    "_name": "_5bc0f19c"
+  },
+  {
+    "name": "post",
+    "path": "/post",
+    "component": "/Users/mingo/project/nuxtjs-case/src/pages/post.vue",
+    "chunkName": "pages/post",
+    "_name": "_da255652"
+  },
+  {
+    "name": "promise",
+    "path": "/promise",
+    "component": "/Users/mingo/project/nuxtjs-case/src/pages/promise.vue",
+    "chunkName": "pages/promise",
+    "_name": "_1fc29798"
+  },
+  {
+    "name": "qrcodeTest",
+    "path": "/qrcodeTest",
+    "component": "/Users/mingo/project/nuxtjs-case/src/pages/qrcodeTest.vue",
+    "chunkName": "pages/qrcodeTest",
+    "_name": "_45717e37"
+  },
+  {
+    "name": "s",
+    "path": "/s",
+    "component": "/Users/mingo/project/nuxtjs-case/src/pages/s.vue",
+    "chunkName": "pages/s",
+    "_name": "_bd8f3768"
+  },
+  {
+    "name": "todo",
+    "path": "/todo",
+    "component": "/Users/mingo/project/nuxtjs-case/src/pages/todo.vue",
+    "chunkName": "pages/todo",
+    "_name": "_1892e17d"
+  },
+  {
+    "name": "tsTodoList",
+    "path": "/tsTodoList",
+    "component": "/Users/mingo/project/nuxtjs-case/src/pages/tsTodoList.vue",
+    "chunkName": "pages/tsTodoList",
+    "_name": "_753de5cc"
+  },
+  {
+    "name": "user",
+    "path": "/user",
+    "component": "/Users/mingo/project/nuxtjs-case/src/pages/user/index.vue",
+    "chunkName": "pages/user/index",
+    "_name": "_f0b190f6"
+  },
+  {
+    "name": "vuex",
+    "path": "/vuex",
+    "component": "/Users/mingo/project/nuxtjs-case/src/pages/vuex.vue",
+    "chunkName": "pages/vuex",
+    "_name": "_27ee4ae9"
+  },
+  {
+    "name": "app-okk",
+    "path": "/app/okk",
+    "component": "/Users/mingo/project/nuxtjs-case/src/pages/app/okk.vue",
+    "chunkName": "pages/app/okk",
+    "_name": "_2c17d58c"
+  },
+  {
+    "name": "user-id",
+    "path": "/user/:id",
+    "component": "/Users/mingo/project/nuxtjs-case/src/pages/user/_id.vue",
+    "chunkName": "pages/user/_id",
+    "_name": "_ef9151a6"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/mingo/project/nuxtjs-case/src/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_25d8fcab"
+  },
+  {
+    "name": "slug",
+    "path": "/:slug",
+    "component": "/Users/mingo/project/nuxtjs-case/src/pages/_slug/index.vue",
+    "chunkName": "pages/_slug/index",
+    "_name": "_62878ba6"
+  },
+  {
+    "name": "slug-comments",
+    "path": "/:slug/comments",
+    "component": "/Users/mingo/project/nuxtjs-case/src/pages/_slug/comments.vue",
+    "chunkName": "pages/_slug/comments",
+    "_name": "_1b42b3d0"
+  },
+  {
+    "name": "all",
+    "path": "/*",
+    "component": "/Users/mingo/project/nuxtjs-case/src/pages/_.vue",
+    "chunkName": "pages/_",
+    "_name": "_bfc2e390"
+  }
+]
