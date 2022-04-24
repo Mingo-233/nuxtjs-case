@@ -23,7 +23,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    'element-ui/lib/theme-chalk/index.css'
+    'element-ui/lib/theme-chalk/index.css',
+    'vant/lib/index.less'
   ],
   router: {
     middleware: 'auth'
@@ -32,7 +33,8 @@ export default {
   plugins: [
     '@/plugins/element-ui',
     '@/plugins/ant-design-vue',
-    '~/plugins/combined-inject.js'
+    '~/plugins/combined-inject.js',
+    // {src:'@/plugins/vant.js', ssr: false}
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -52,6 +54,22 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: [/^element-ui/],
-  }
+    transpile: [/^element-ui/, /vant.?less/],
+    babel: {
+      plugins: [
+        ['import', {
+          libraryName: 'vant',
+          libraryDirectory: 'es',
+          style: (name) => {
+            return `${name}/style/less.js`
+          },
+        }, 'vant']
+      ]
+    },
+    analyza: {
+      analyzeMode: 'static'
+    }
+  },
+  target: 'static',
+
 }

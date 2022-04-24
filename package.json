@@ -6,7 +6,8 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "analyze": "nuxt build --analyze"
   },
   "dependencies": {
     "ant-design-vue": "^1.7.8",
@@ -19,6 +20,7 @@
     "less-loader": "^6.0.0",
     "nuxt": "^2.15.8",
     "qrcode": "^1.5.0",
+    "vant": "^2.12.47",
     "vue": "^2.6.14",
     "vue-server-renderer": "^2.6.14",
     "vue-template-compiler": "^2.6.14",
@@ -29,6 +31,7 @@
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/eslint-config-typescript": "^8.0.0",
     "@nuxtjs/vuetify": "^1.12.3",
+    "babel-plugin-import": "^1.13.5",
     "jsdom": "^19.0.0",
     "less": "^4.1.2"
   }
