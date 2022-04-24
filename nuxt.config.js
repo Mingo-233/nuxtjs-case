@@ -1,6 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   srcDir: 'src/',
+  ssr:false,
   head: {
     title: 'nuxt-demo',
     htmlAttrs: {
@@ -60,6 +61,7 @@ export default {
         ['import', {
           libraryName: 'vant',
           libraryDirectory: 'es',
+          // style: true
           style: (name) => {
             return `${name}/style/less.js`
           },
