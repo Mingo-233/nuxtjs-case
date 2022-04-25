@@ -35,6 +35,7 @@ export default {
     '@/plugins/element-ui',
     '@/plugins/ant-design-vue',
     '~/plugins/combined-inject.js',
+    '@/directive/drag.js'
     // {src:'@/plugins/vant.js', ssr: false}
   ],
 
@@ -55,7 +56,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: [/^element-ui/, /vant.?less/],
+    transpile: [/^element-ui/, /vant.*?less/],
     babel: {
       plugins: [
         ['import', {

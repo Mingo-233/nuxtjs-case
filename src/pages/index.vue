@@ -1,7 +1,5 @@
 <template>
   <div class="main">
-    <div class="home-btn">home</div>
-
     <div class="route-box">
       <div
         class="route"
@@ -19,8 +17,10 @@
 <script>
 // import js from "~/store/index.js";
 import routerInfoJson from "@/routes.json";
+
 export default {
   name: "IndexPage",
+  components: {},
   data() {
     return {
       routers: [],
@@ -53,19 +53,12 @@ export default {
     .route {
       width: 200px;
       height: 100px;
+      line-height: 100px;
       border: 1px solid greenyellow;
       cursor: pointer;
+      font-size: 20px;
+      text-align: center;
     }
-  }
-
-  .home-btn {
-    position: fixed;
-    width: 100px;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    color: #fff;
-    background: paleturquoise;
   }
 }
 </style>
