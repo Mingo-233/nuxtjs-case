@@ -1,3 +1,6 @@
+
+const isBuildProduction = process.env.NUXT_BUILD_ENV === 'production';
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   srcDir: 'src/',
@@ -53,7 +56,12 @@ export default {
     '~/modules/simple',
     'cookie-universal-nuxt',
   ],
-
+  vue:{
+    config:{  
+      productionTip: true,
+      devtools:!isBuildProduction
+    }
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/, /vant.*?less/],
@@ -62,12 +70,18 @@ export default {
         ['import', {
           libraryName: 'vant',
           libraryDirectory: 'es',
-          // style: true
-          style: (name) => {
-            return `${name}/style/less.js`
-          },
+          style: true
+          // style: (name) => {
+          //   return `${name}/style/less.js`
+          // },
         }, 'vant']
       ]
+    },
+    extend(config, { isClient }) {
+      // Extend only webpack config for client-bundle
+      if (isClient) {
+        config.devtool = 'source-map'
+      }
     },
     analyza: {
       analyzeMode: 'static'
