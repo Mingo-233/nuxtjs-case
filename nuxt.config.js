@@ -1,20 +1,23 @@
-
-const isBuildProduction = process.env.NUXT_BUILD_ENV === 'production';
+const isBuildProduction = process.env.NUXT_BUILD_ENV === "production";
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
-  srcDir: 'src/',
-  ssr:false,
+  srcDir: "src/",
+  server: {
+    port: 8000, // default: 3000
+    host: "0.0.0.0", // default: localhost
+  },
+  // ssr:false,
   head: {
-    title: 'nuxt-demo',
+    title: "nuxt-demo",
     htmlAttrs: {
-      lang: 'en'
+      lang: "en",
     },
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { hid: "description", name: "description", content: "" },
+      { name: "format-detection", content: "telephone=no" },
     ],
     // link: [
     //   { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -26,19 +29,16 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    'element-ui/lib/theme-chalk/index.css',
-    'vant/lib/index.less'
-  ],
+  css: ["element-ui/lib/theme-chalk/index.css", "vant/lib/index.less"],
   router: {
-    middleware: 'auth'
+    middleware: "auth",
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/element-ui',
-    '@/plugins/ant-design-vue',
-    '~/plugins/combined-inject.js',
-    '@/directive/drag.js'
+    "@/plugins/element-ui",
+    "@/plugins/ant-design-vue",
+    "~/plugins/combined-inject.js",
+    "@/directive/drag.js",
     // {src:'@/plugins/vant.js', ssr: false}
   ],
 
@@ -46,47 +46,44 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    '@nuxt/typescript-build',
-    '@nuxtjs/vuetify',
-  ],
+  buildModules: ["@nuxt/typescript-build", "@nuxtjs/vuetify"],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    '~/modules/simple',
-    'cookie-universal-nuxt',
-  ],
-  vue:{
-    config:{  
+  modules: ["~/modules/simple", "cookie-universal-nuxt"],
+  vue: {
+    config: {
       productionTip: true,
-      devtools:!isBuildProduction
-    }
+      devtools: !isBuildProduction,
+    },
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/, /vant.*?less/],
     babel: {
       plugins: [
-        ['import', {
-          libraryName: 'vant',
-          libraryDirectory: 'es',
-          style: true
-          // style: (name) => {
-          //   return `${name}/style/less.js`
-          // },
-        }, 'vant']
-      ]
+        [
+          "import",
+          {
+            libraryName: "vant",
+            libraryDirectory: "es",
+            style: true,
+            // style: (name) => {
+            //   return `${name}/style/less.js`
+            // },
+          },
+          "vant",
+        ],
+      ],
     },
     extend(config, { isClient }) {
       // Extend only webpack config for client-bundle
       if (isClient) {
-        config.devtool = 'source-map'
+        config.devtool = "source-map";
       }
     },
     analyza: {
-      analyzeMode: 'static'
-    }
+      analyzeMode: "static",
+    },
   },
-  target: 'static',
-
-}
+  target: "static",
+};
