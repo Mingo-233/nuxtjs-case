@@ -2,6 +2,7 @@ import Vue from "vue";
 
 interface location {
   direction: string;
+  tragetEl: HTMLElement;
   triangleTop?: string;
 }
 let PopoverLoadConstructor: any;
@@ -12,36 +13,15 @@ const receiveVueComponent = (Component: any) => {
   PopoverLoadConstructor = Vue.extend(Component);
 
   PopoverLoadConstructor.prototype.init = function () {
-    // if (this.vm) {
-    //   console.log(this.vm);
-    // }
-
-    // debugger;
     this.vm = this.$mount();
-    console.log(this.vm);
-    let a = document.createElement("div");
-    a.innerHTML = "xxx";
-    document.body.appendChild(a);
-
     document.body.appendChild(this.vm.$el);
     return this;
   };
-  PopoverLoadConstructor.prototype.init2 = function () {
-    this.vm = this.$mount();
-    console.log(this.vm);
-    // let a = document.createElement("div");
-    // a.innerHTML = "xxx";
-    // document.body.appendChild(a);
-    // document.body.appendChild(this.vm.$el);
-    return this;
-  };
   function initLocation(this: any, options: location) {
-    const target = document.querySelector(".vip-header");
+    const target = options.tragetEl;
     if (!target) return;
     const domReact = target.getBoundingClientRect();
-    console.log(domReact);
-
-    const { top, left, width, height } = domReact;
+    const { top, left, width } = domReact;
     const elWidth = this.vm.$el.offsetWidth;
     this.vm.top = top + "px";
     if (options.direction === "right") {
