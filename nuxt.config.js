@@ -3,11 +3,11 @@ const isBuildProduction = process.env.NUXT_BUILD_ENV === "production";
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   srcDir: "src/",
-  server: {
-    port: 8000, // default: 3000
-    host: "0.0.0.0", // default: localhost
-  },
-  // ssr:false,
+  // server: {
+  //   port: 8000, // default: 3000
+  //   host: "0.0.0.0", // default: localhost
+  // },
+  ssr: false,
   head: {
     title: "nuxt-demo",
     htmlAttrs: {

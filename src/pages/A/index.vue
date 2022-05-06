@@ -1,27 +1,25 @@
 <template>
-  <div>
+  <div class="a-index">
     git reset --soft
 
-    <div>
-      <Button type="primary" @click="show = !show">11122</Button>
-      <Button type="primary" @click="handle">confirm</Button>
-
-      <!-- <van-tabs v-model="active">
-  <van-tab title="标签 1">内容 1</van-tab>
-  <van-tab title="标签 2">内容 2</van-tab>
-  <van-tab title="标签 3">内容 3</van-tab>
-  <van-tab title="标签 4">内容 4</van-tab>
-</van-tabs> -->
-      <Dialog v-model="show" title="标题" show-cancel-button> </Dialog>
-
-      <Popover placement="top"></Popover>
-    </div>
+    <div class="vip-header">vip-header</div>
+    <Button @click="open">open</Button>
+    <Button @click="clsoe">close</Button>
+    <Button @click="destroyed">destroyed</Button>
+    <Button @click="initAA">initAA</Button>
+    <Button @click="initAA2">initAA2</Button>
   </div>
 </template>
 
 <script lang="ts">
 const customColors = ["#f50", "#2db7f5", "#87d068", "#108ee9"];
 import { Button, Dialog, Popover } from "vant";
+import receiveVueComponent from "./index.ts";
+import com from "./com.vue";
+
+let a = receiveVueComponent(com);
+console.log(a);
+
 export default {
   name: "",
   components: {
@@ -54,15 +52,48 @@ export default {
           // on cancel
         });
     },
+    clsoe() {
+      a.close();
+    },
+    open() {
+      const options = {
+        direction: "right",
+        triangleTop: "25px",
+      };
+      a.show(options);
+    },
+
+    destroyed() {
+      a.destroyed();
+    },
     onSelect() {
       // Toast(action.text);
     },
+    initAA() {
+      a.init();
+    },
+    initAA2() {
+      a.init2();
+    },
   },
-  mounted() {},
+  mounted() {
+    a.init();
+  },
 };
 </script>
 
 <style lang="less">
-.priceDisparityTooltip {
+.a-index {
+  position: relative;
+  background: #ccc;
+  height: 100vh;
+  .vip-header {
+    position: absolute;
+    width: 100px;
+    height: 300px;
+    border: 1px solid #f50;
+    top: 300px;
+    right: 300px;
+  }
 }
 </style>
