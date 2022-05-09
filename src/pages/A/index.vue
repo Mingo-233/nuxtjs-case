@@ -14,11 +14,7 @@
 <script lang="ts">
 const customColors = ["#f50", "#2db7f5", "#87d068", "#108ee9"];
 import { Button, Dialog, Popover } from "vant";
-<<<<<<< Updated upstream
-import receiveVueComponent from "./index";
-=======
 import receiveVueComponent from "./load";
->>>>>>> Stashed changes
 import com from "./com.vue";
 
 let a = receiveVueComponent(com);

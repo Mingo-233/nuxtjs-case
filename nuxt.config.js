@@ -36,7 +36,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     "@/plugins/element-ui",
-    "@/plugins/ant-design-vue",
+    // "@/plugins/ant-design-vue",
     "~/plugins/combined-inject.js",
     "@/directive/drag.js",
     // {src:'@/plugins/vant.js', ssr: false}
@@ -58,8 +58,11 @@ export default {
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    // 当使用有 es6 的库时，需要将其导出，告诉 babel 做转化
     transpile: [/^element-ui/, /vant.*?less/],
     babel: {
+//       ["import", { "libraryName": "antd", "style": true }]: import js and css modularly (LESS/Sass source files)
+// ["import", { "libraryName": "antd", "style": "css" }]: import js and css modularly (css built files)
       plugins: [
         [
           "import",
@@ -73,9 +76,16 @@ export default {
           },
           "vant",
         ],
+        ["import",
+         {
+            libraryName: "ant-design-vue",
+            libraryDirectory: "es",
+             style: 'css'
+            }
+        ]
       ],
     },
-    extend(config, { isClient }) {
+    extend (config, { isClient }) {
       // Extend only webpack config for client-bundle
       if (isClient) {
         config.devtool = "source-map";
