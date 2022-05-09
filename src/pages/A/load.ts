@@ -4,6 +4,8 @@ interface location {
   direction: string;
   tragetEl: HTMLElement;
   triangleTop?: string;
+  top?: string;
+  verticalAlignment?: "bottom" | "top";
 }
 let PopoverLoadConstructor: any;
 const popoverLoading = () => {
@@ -21,9 +23,21 @@ const receiveVueComponent = (Component: any) => {
     const target = options.tragetEl;
     if (!target) return;
     const domReact = target.getBoundingClientRect();
-    const { top, left, width } = domReact;
+    const { top, left, bottom, width } = domReact;
     const elWidth = this.vm.$el.offsetWidth;
-    this.vm.top = top + "px";
+    const elHeight = this.vm.$el.offsetHeight;
+    if (options.top) {
+      // 若指定top距离
+      this.vm.top = options.top;
+    } else if (options.verticalAlignment) {
+      // 垂直底部对齐
+      if (options.verticalAlignment === "bottom") {
+        //   挂载元素底部距离顶部视口的距离 - 挂载元素的宽度
+        this.vm.top = bottom - elHeight + "px";
+      }
+    } else {
+      this.vm.top = top + "px";
+    }
     if (options.direction === "right") {
       //   挂载元素距离左侧视口的距离 + 挂载元素的宽度
       this.vm.left = left + width + 15 + "px";

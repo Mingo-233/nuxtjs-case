@@ -2,7 +2,7 @@
   <div class="a-index">
     git reset --soft
 
-    <div class="vip-header">vip-header</div>
+    <div class="codelist">codelist</div>
     <Button @click="open">open</Button>
     <Button @click="clsoe">close</Button>
     <Button @click="destroyed">destroyed</Button>
@@ -14,7 +14,11 @@
 <script lang="ts">
 const customColors = ["#f50", "#2db7f5", "#87d068", "#108ee9"];
 import { Button, Dialog, Popover } from "vant";
+<<<<<<< Updated upstream
 import receiveVueComponent from "./index";
+=======
+import receiveVueComponent from "./load";
+>>>>>>> Stashed changes
 import com from "./com.vue";
 
 let a = receiveVueComponent(com);
@@ -59,6 +63,7 @@ export default {
       const options = {
         direction: "right",
         triangleTop: "25px",
+        tragetEl: document.querySelector(".codelist"),
       };
       a.show(options);
     },
@@ -87,7 +92,7 @@ export default {
   position: relative;
   background: #ccc;
   height: 100vh;
-  .vip-header {
+  .codelist {
     position: absolute;
     width: 100px;
     height: 300px;
