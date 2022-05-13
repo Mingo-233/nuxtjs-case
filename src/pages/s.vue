@@ -1,29 +1,36 @@
 <template>
-<div>
-    hi, this is vuex test page 
-        <!-- <a-button type="danger">
+  <div>
+    hi, this is vuex test page
+    <!-- <a-button type="danger">
       Danger
     </a-button> -->
+    <Upload accept="image/png" multiple @change="handleUploadBefore">
+      <Button>Click to Upload </Button>
+    </Upload>
     <Button type="danger">Danger</Button>
-</div>
+  </div>
 </template>
 
 <script lang="ts">
-import { Button } from 'ant-design-vue';
+import { Button, Upload } from "ant-design-vue";
+
 export default {
-  components:{
-    Button
+  components: {
+    Button,
+    Upload,
   },
   methods: {
+    handle() {},
+    handleUploadBefore(a: any) {
+      console.log(a);
 
-    handle(){
+      console.log(arguments);
+      const { file, fileList } = a;
 
-    }
-
+      console.log(file.status);
+    },
   },
 };
 </script>
 
-<style>
-
-</style>
+<style></style>
