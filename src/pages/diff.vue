@@ -10,7 +10,6 @@
 
 <script>
 export default {
-  name: "",
   data() {
     return {
       msg: "",
@@ -24,7 +23,10 @@ export default {
       this.msg = " this is b  tab ";
     },
   },
+  name: "",
+
   mounted() {},
+  components: {},
 };
 </script>
 
