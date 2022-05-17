@@ -1,27 +1,46 @@
 {
-  "editor.tabSize": 2,
-  "typescript.updateImportsOnFileMove.enabled": "never",
-  "editor.formatOnType": false,
+  // "[html]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
+  // "[javascript]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
+  // "[jsonc]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["html", "vue", "javascript", "jsx"],
+  "eslint.autoFixOnSave": true, //  启用保存时自动修复,默认只支持.js文件
   "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
+    "javascript", //  用eslint的规则检测js文件
+    "javascriptreact", //  用eslint的规则检测js文件
+    {
+      "language": "vue", // 检测vue文件
+      "autoFix": true //  为vue文件开启保存自动修复的功能
+    },
+    {
+      "language": "html",
+      "autoFix": true
+    },
     "vue"
   ],
-  "vetur.format.defaultFormatter.js": "none",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    // For TSLint
-    "source.fixAll.tslint": true,
-    // For Stylelint
-    "source.fixAll.stylelint": true
+  "extensions.autoUpdate": false,
+  "eslint.validate": ["javascript", "javascriptreact", "vue"],
+  "prettier.eslintIntegration": true,
+  "vetur.format.defaultFormatterOptions": {
+    "prettier": {
+      "eslintIntegration": true
+    }
   },
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "eslint.alwaysShowStatus": true,
-  "eslint.format.enable": true,
-  "px2rem.rootFontSize": 16,
-  "px2rem.isNeedNotes": false,
-  "liveServer.settings.port": 5502
+  "vetur.format.defaultFormatter.js": "prettier-eslint",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

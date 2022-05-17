@@ -7,7 +7,7 @@
     <Upload accept="image/png" multiple @change="handleUploadBefore">
       <Button>Click to Upload </Button>
     </Upload>
-    <Button type="danger">Danger</Button>
+    <Button type="danger"> Danger </Button>
     <a-carousel arrows>
       <div
         slot="prevArrow"
@@ -17,12 +17,7 @@
       >
         <a-icon type="left-circle" />
       </div>
-      <div
-        slot="nextArrow"
-        slot-scope="props"
-        class="custom-slick-arrow"
-        style="right: 10px"
-      >
+      <div slot="nextArrow" slot-scope="props" class="custom-slick-arrow" style="right: 10px">
         <a-icon type="right-circle" />
       </div>
       <div><h3>1</h3></div>
@@ -34,26 +29,27 @@
 </template>
 
 <script lang="ts">
-import { Button, Upload, Icon, Carousel } from "ant-design-vue";
+import { Button, Upload, Icon, Carousel } from 'ant-design-vue';
 
 export default {
   components: {
     Button,
     Upload,
     aIcon: Icon,
-    aCarousel: Carousel,
+    aCarousel: Carousel
   },
   methods: {
     handle() {},
     handleUploadBefore(a: any) {
       console.log(a);
+      const dd = '2';
 
       console.log(arguments);
       const { file, fileList } = a;
 
       console.log(file.status);
-    },
-  },
+    }
+  }
 };
 </script>
 
