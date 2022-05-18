@@ -10,23 +10,24 @@
 
 <script>
 export default {
+  name: 'DiffA',
+  components: {},
   data() {
     return {
-      msg: "",
+      msg: '',
     };
+  },
+  mounted() {
+    const a = 1;
   },
   methods: {
     toA() {
-      this.msg = " this is a  tab ";
+      this.msg = ' this is a  tab ';
     },
     toB() {
-      this.msg = " this is b  tab ";
+      this.msg = ' this is b  tab ';
     },
   },
-  name: "",
-
-  mounted() {},
-  components: {},
 };
 </script>
 

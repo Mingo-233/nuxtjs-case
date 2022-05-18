@@ -12,5 +12,5 @@ module.exports = {
   bracketSpacing: true, // 对象中是否使用空格
   tabWidth: 2, // tab缩进大小,默认为2
   useTabs: false, // 是否使用tab 作为缩进
-  trailingComma: 'none' // 对象字面量结尾是否使用逗号
+  trailingComma: 'es5', // 对象字面量结尾是否使用逗号 ‘none 为不添加;es5 在ES5 中生效的逗号 (对象，数组等等);  all’
 };
