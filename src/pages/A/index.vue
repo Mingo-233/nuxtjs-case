@@ -3,25 +3,26 @@
     git reset --soft
 
     <div class="codelist">codelist</div>
-    <Button @click="open">open</Button>
-    <Button @click="clsoe">close</Button>
-    <Button @click="destroyed">destroyed</Button>
-    <Button @click="initAA">initAA</Button>
-    <Button @click="initAA2">initAA2</Button>
+    <Button @click="open"> open </Button>
+    <Button @click="clsoe"> close </Button>
+    <Button @click="destroyed"> destroyed </Button>
+    <Button @click="initAA"> initAA </Button>
+    <Button @click="initAA2"> initAA2 </Button>
   </div>
 </template>
 
 <script lang="ts">
-const customColors = ["#f50", "#2db7f5", "#87d068", "#108ee9"];
-import { Button, Dialog, Popover } from "vant";
-import receiveVueComponent from "./load";
-import com from "./com.vue";
+import { Button, Dialog, Popover } from 'vant';
+import receiveVueComponent from './load';
+import com from './com.vue';
 
-let a = receiveVueComponent(com);
+const customColors = ['#f50', '#2db7f5', '#87d068', '#108ee9'];
+
+const a = receiveVueComponent(com);
 console.log(a);
 
 export default {
-  name: "",
+  name: 'Aand',
   components: {
     Button,
     Dialog: Dialog.Component,
@@ -29,21 +30,24 @@ export default {
   },
   data() {
     return {
-      msg: "#108ee9",
-      colors: "",
+      msg: '#108ee9',
+      colors: '',
       customColors,
       show: false,
       active: true,
       showPopover: true,
       // 通过 actions 属性来定义菜单选项
-      actions: [{ text: "选项一" }, { text: "选项二" }, { text: "选项三" }],
+      actions: [{ text: '选项一' }, { text: '选项二' }, { text: '选项三' }],
     };
+  },
+  mounted() {
+    a.init();
   },
   methods: {
     handle() {
       Dialog.confirm({
-        title: "标题",
-        message: "弹窗内容",
+        title: '标题',
+        message: '弹窗内容',
       })
         .then(() => {
           // on confirm
@@ -57,9 +61,9 @@ export default {
     },
     open() {
       const options = {
-        direction: "right",
-        triangleTop: "25px",
-        tragetEl: document.querySelector(".codelist"),
+        direction: 'right',
+        triangleTop: '25px',
+        tragetEl: document.querySelector('.codelist'),
       };
       a.show(options);
     },
@@ -76,9 +80,6 @@ export default {
     initAA2() {
       a.init2();
     },
-  },
-  mounted() {
-    a.init();
   },
 };
 </script>
