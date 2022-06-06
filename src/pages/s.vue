@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts">
-import { Button, Upload, Icon, Carousel } from 'ant-design-vue';
+import { Button, Upload, Carousel } from 'ant-design-vue';
 
 const baseUrl =
   'https://raw.githubusercontent.com/vueComponent/ant-design-vue/master/components/vc-slick/assets/img/react-slick/';
@@ -46,7 +46,6 @@ export default {
   components: {
     Button,
     Upload,
-    aIcon: Icon,
     aCarousel: Carousel,
   },
   data() {

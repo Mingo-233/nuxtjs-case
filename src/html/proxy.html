@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let person = {
+        age: 0,
+        school: '西电',
+        children: {
+          name: '小明',
+          food: {
+            name: '苹果',
+          },
+        },
+      };
+      let hander = {
+        get(obj, key) {
+          console.log('jinru get');
+          // console.log(key);
+          // console.log(obj);
+          return key in obj ? obj[key] : 66;
+        },
+        set(obj, key, val) {
+          console.log(obj);
+          console.log(key);
+          obj[key] = val;
+          return true;
+        },
+      };
+      let proxyObj = new Proxy(person, hander);
+      console.log(proxyObj);
+      // 测试get
+      // console.log(proxyObj.children.name); //输出：小明
+      // console.log(proxyObj.children.height); //输出：undefined
+
+      // 测试set
+      // proxyObj.children.name = '菜菜';
+      // console.log(proxyObj.children.name); //输出: 菜菜
+      proxyObj.children.food.name = '香蕉';
+      // proxyObj.age = 1;
+      console.log(proxyObj.children.food);
+    </script>
+  </body>
+</html>

@@ -6,8 +6,8 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'plugin:vue/recommended',
-    // "@nuxtjs/eslint-config-typescript",
+    // 'plugin:vue/recommended',
+    '@nuxtjs/eslint-config-typescript',
     'airbnb-base',
   ],
   parserOptions: {
@@ -35,5 +35,7 @@ module.exports = {
     // 'no-negated-condition': 0,
     // 'unicorn/number-literal-case': 0,
     // 'require-await': isProduction ? 2 : 1,
+    'vue/multi-word-component-names': 0,
+    'vue/html-self-closing': 0,
   },
 };
