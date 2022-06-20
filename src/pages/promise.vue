@@ -11,35 +11,53 @@
 
 <script>
 // const { loadNuxt } = require("nuxt");
+const obj = {};
+const pp = new Promise((resolve, reject) => {
+  obj.ok = resolve;
+  obj.cancel = reject;
+});
 export default {
-  name: "promise-demo",
+  name: 'PromiseDemo',
   data() {
     return {
-      a: "",
+      a: '',
       ajaxLoading: null,
-      b: "",
+      b: '',
       ajaxLoading2: Promise.resolve(),
+      pp: new Promise((resolve, reject) => {
+        obj.ok = resolve;
+        obj.cancel = reject;
+      }),
     };
+  },
+  created() {
+    pp.then(res => {
+      // zhixing
+    });
+    setTimeout(() => {
+      // 接口返回了
+      obj.ok();
+    }, 2000);
   },
   methods: {
     submit() {
       if (this.ajaxLoading) {
-        this.ajaxLoading.then((res) => {
-          console.log("submit");
+        this.ajaxLoading.then(res => {
+          console.log('submit');
         });
       } else {
-        console.log("submit");
+        console.log('submit');
       }
-      window.location.href='/'
+      window.location.href = '/';
     },
     blurHandle() {
-      console.log("ajax start");
-      this.ajaxLoading = new Promise((resolve) => {
+      console.log('ajax start');
+      this.ajaxLoading = new Promise(resolve => {
         console.log(this);
         this.ajaxRequest()
-          .then((res) => {
+          .then(res => {
             resolve();
-            console.log("ajax end");
+            console.log('ajax end');
           })
           .finally(() => {
             this.ajaxLoading = null;
@@ -48,18 +66,18 @@ export default {
     },
     submit2() {
       console.log(this.ajaxLoading2);
-      this.ajaxLoading2.then((res) => {
-        console.log("submit");
+      this.ajaxLoading2.then(res => {
+        console.log('submit');
       });
     },
     blurHandle2() {
-      console.log("ajax start");
-      this.ajaxLoading2 = new Promise((resolve) => {
+      console.log('ajax start');
+      this.ajaxLoading2 = new Promise(resolve => {
         console.log(this);
         this.ajaxRequest()
-          .then((res) => {
+          .then(res => {
             resolve();
-            console.log("ajax end");
+            console.log('ajax end');
           })
           .finally(() => {
             this.ajaxLoading2 = Promise.resolve();
@@ -67,26 +85,12 @@ export default {
       });
     },
     ajaxRequest() {
-      return new Promise((resolve) => {
+      return new Promise(resolve => {
         setTimeout(() => {
-          resolve("ok");
+          resolve('ok');
         }, 2000);
       });
     },
-  },
-  created() {
-    async function init() {
-      // Assuming you've already built your project
-      // const nuxt = await loadNuxt({ for: "start" });
-      // console.log(nuxt);
-      // await nuxt.listen(3000);
-      // const window = await nuxt.renderAndGetWindow("http://localhost:3000");
-      // // Display the head `<title>`
-      // console.log(window.document.title);
-      // nuxt.close();
-    }
-console.log();
-    init();
   },
 };
 </script>
