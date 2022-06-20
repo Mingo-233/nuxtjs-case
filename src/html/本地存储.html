@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const config = {
+        type: 'localStorage', // 本地存储类型 localStorage/sessionStorage
+        prefix: 'SDF_0.0.1', // 名称前缀 建议：项目名 + 项目版本
+        expire: 1, //过期时间 单位：秒
+        isEncrypt: true, // 默认加密 为了调试方便, 开发过程中可以不加密
+      };
+      const setStorage = (key, value, expire = 0) => {
+        if (value === '' || value === null || value === undefined) {
+          value = null;
+        }
+
+        if (isNaN(expire) || expire < 1) throw new Error('Expire must be a number');
+
+        expire = (expire ? expire : config.expire) * 60000;
+        let data = {
+          value: value, // 存储值
+          time: Date.now(), //存值时间戳
+          expire: expire, // 过期时间
+        };
+
+        window[config.type].setItem(key, JSON.stringify(data));
+      };
+      setStorage('name', '小明', 600000);
+    </script>
+  </body>
+</html>
