@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let example1 = () => {
+        const parent = {
+          get value() {
+            return '19Qingfeng';
+          },
+        };
+
+        const proxy = new Proxy(parent, {
+          // get陷阱中target表示原对象 key表示访问的属性名
+          get(target, key, receiver) {
+            //receiver 为 Proxy 或者继承 Proxy 的对象
+            console.log(this);
+            console.log(target);
+            console.log(receiver === proxy);
+            return target[key];
+          },
+        });
+
+        const obj = {
+          name: 'wang.haoyu',
+          // value: 'objvale',
+        };
+        // 设置obj继承与parent的代理对象proxy
+        obj.__proto__ = proxy;
+        // Object.setPrototypeOf(obj, proxy);
+        // log: false
+        console.log(obj.value);
+      };
+
+      let example2 = () => {
+        const parent = {
+          name: '19Qingfeng',
+          get value() {
+            console.log(this);
+            return this.name;
+          },
+        };
+
+        const handler = {
+          get(target, key, receiver) {
+            // console.log(target);
+            // console.log(key);
+
+            // console.log(this);
+            // return Reflect.get(target, key);
+            return Reflect.get(target, key, receiver);
+          },
+        };
+
+        const proxy = new Proxy(parent, handler);
+
+        const obj = {
+          name: 'wang.haoyu',
+        };
+
+        // 设置obj继承与parent的代理对象proxy
+        Object.setPrototypeOf(obj, proxy);
+
+        // log: wang.haoyu
+        console.log(obj.value);
+        // obj 继承了proxy的代理对象，此时 访问obj的value 属性，但是obj没有这个属性，就会根据原型链往上找到proxy，但是proxy是个代理对象，此时访问到hander函数中的get，被劫持。
+        // 关键来了，如果不传递receiver，那么此时反射的就是代理对象的目标parent，读到value属性，返回19Qingfeng
+        //  如果传递receiver 那么此时就会修改this指向，更正为原始操作时的 this 指向，即obj，代理对象上的this指向的就是obj，所以返回obj的name，wang.haoyu
+
+        // 综上所述，proxy必须和reflect联合使用就是会了保证，触发代理对象的劫持时保证正确的 this 上下文指向。
+      };
+      example2();
+    </script>
+  </body>
+</html>
