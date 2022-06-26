@@ -73,6 +73,9 @@
         //  如果传递receiver 那么此时就会修改this指向，更正为原始操作时的 this 指向，即obj，代理对象上的this指向的就是obj，所以返回obj的name，wang.haoyu
 
         // 综上所述，proxy必须和reflect联合使用就是会了保证，触发代理对象的劫持时保证正确的 this 上下文指向。
+
+        //         Proxy 中接受的 Receiver 形参表示代理对象本身或者继承与代理对象的对象。
+        // Reflect 中传递的 Receiver 实参表示修改执行原始操作时的 this 指向。
       };
       example2();
     </script>
