@@ -16,19 +16,33 @@ export default {
     return {
       imgArr: [
         'https://test.yun.baoxiaohe.com/image/shed/d4db3e65-09c6-4d14-8149-54fa68b75406.jpeg',
+        'https://test.yun.baoxiaohe.com/image/shed/39f0fb2b-7c5b-46ed-a7b7-91fb88ab6020.jpg',
         'https://test.yun.baoxiaohe.com/image/shed/d4db3e65-09c6-4d14-8149-54fa68b75406.jpeg',
         'https://test.yun.baoxiaohe.com/image/shed/d4db3e65-09c6-4d14-8149-54fa68b75406.jpeg',
         'https://test.yun.baoxiaohe.com/image/shed/e7ba2555-1703-481a-816e-73223f05fce1.jpg',
         'https://test.yun.baoxiaohe.com/image/shed/39f0fb2b-7c5b-46ed-a7b7-91fb88ab6020.jpg',
         'https://yun.baoxiaohe.com/render/20210323/c45057eb-1038-451e-9f72-431684135f8b0001.jpg',
         'https://yun.baoxiaohe.com/render/20210323/c45057eb-1038-451e-9f72-431684135f8b0001.jpg',
+        'https://test.yun.baoxiaohe.com/image/shed/39f0fb2b-7c5b-46ed-a7b7-91fb88ab6020.jpg',
         'https://yun.baoxiaohe.com/render/20220602/26995230001.jpg',
+        'https://test.yun.baoxiaohe.com/image/shed/39f0fb2b-7c5b-46ed-a7b7-91fb88ab6020.jpg',
         'https://yun.baoxiaohe.com/render/20220602/26995230001.jpg',
+        'https://test.yun.baoxiaohe.com/image/shed/39f0fb2b-7c5b-46ed-a7b7-91fb88ab6020.jpg',
+        'https://test.yun.baoxiaohe.com/image/shed/39f0fb2b-7c5b-46ed-a7b7-91fb88ab6020.jpg',
+
         'https://yun.baoxiaohe.com/render/20220602/26995230001.jpg',
       ],
     };
   },
   mounted() {
+    const n = new Image();
+
+    n.src = 'https://yun.baoxiaohe.com/render/20220602/26995230001.jpg';
+    n.onload = () => {
+      console.log('wanc');
+      console.dir(n);
+      console.log(n.width);
+    };
     this.init();
   },
   methods: {
@@ -39,6 +53,9 @@ export default {
           const src = img.firstChild.getAttribute('src');
           const image = new Image();
           image.src = src;
+
+          console.log(img);
+          console.log(img.firstChild);
           const { width } = img.firstChild;
           image.onload = function () {
             const w = image.width;
@@ -46,8 +63,6 @@ export default {
             const height = Math.round((h * width) / w);
             // eslint-disable-next-line no-param-reassign
             img.firstChild.src = src;
-            console.log(img.firstChild);
-            // eslint-disable-next-line no-bitwise
             // eslint-disable-next-line no-param-reassign
             img.style.gridRowEnd = `span ${~~(height / 10)}`;
           };
